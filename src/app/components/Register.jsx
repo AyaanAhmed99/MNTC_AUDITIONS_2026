@@ -63,8 +63,8 @@ export default function Register({ userData, setUserData }) {
   };
 
   const inputClass = (error) =>
-    `w-full rounded-md border px-3 py-2 text-base transition
-     focus:outline-none focus:ring-1
+    `w-full rounded-xl border px-4 py-3 text-base transition
+     focus:outline-none focus:ring-2
      ${
        error
          ? "border-red-400 focus:ring-red-300"
@@ -76,10 +76,10 @@ export default function Register({ userData, setUserData }) {
       <div className="flex justify-center">
         <form
           onSubmit={handleSubmit}
-          className="w-full max-w-md bg-white rounded-xl shadow-lg px-6 py-8"
+          className="w-full max-w-lg bg-white rounded-2xl shadow-lg p-6 sm:p-8"
         >
-          {/* ORIGINAL HEADING STYLE */}
-          <h1 className="text-2xl font-bold text-center mb-1">
+          {/* Heading */}
+          <h1 className="text-xl sm:text-2xl font-bold text-center mb-1">
             <span className="text-gray-900">MNTC</span>{" "}
             <span className="text-indigo-700">Audition Registration</span>
           </h1>
@@ -196,16 +196,17 @@ export default function Register({ userData, setUserData }) {
             <p className="text-sm font-medium text-gray-700 mb-3">
               Preferred Cells ({formData.preferredCells.length}/2)
             </p>
-            <div className="grid grid-cols-2 gap-3">
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {cells.map((cell) => (
                 <button
                   key={cell}
                   type="button"
                   onClick={() => handleCellChange(cell)}
-                  className={`rounded-md px-3 py-2 text-sm font-medium transition
+                  className={`rounded-xl px-4 py-3 text-sm font-medium transition
                     ${
                       formData.preferredCells.includes(cell)
-                        ? "bg-indigo-600 text-white shadow-sm"
+                        ? "bg-indigo-600 text-white shadow"
                         : "border border-gray-300 text-gray-700 hover:bg-indigo-50"
                     }`}
                 >
@@ -213,6 +214,7 @@ export default function Register({ userData, setUserData }) {
                 </button>
               ))}
             </div>
+
             {errors.preferredCells && (
               <p className="text-sm text-red-500 mt-2">
                 {errors.preferredCells}
@@ -220,9 +222,10 @@ export default function Register({ userData, setUserData }) {
             )}
           </div>
 
+          {/* Submit */}
           <button
             type="submit"
-            className="w-full bg-indigo-600 text-white py-3 rounded-md text-base font-semibold hover:bg-indigo-700 transition"
+            className="w-full bg-indigo-600 text-white py-3 rounded-xl text-base font-semibold hover:bg-indigo-700 transition"
           >
             Register
           </button>
